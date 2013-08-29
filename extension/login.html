@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+      .form-div {
+         margin: 5px 0 5px 0;
+      }
+      .form-div span {
+         display: inline-block;
+         width: 70px;
+         padding-left: 5px;
+      }
+      .query-field {
+        width: 165px;
+      }
+      #info {
+        font-size: 14px;
+        margin: 5px;
+        color: #16a085;
+        line-height: 14px;
+      }
+      .register-btn {
+        margin: 5px;
+        position: relative;
+        top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form">
+      <div id="info">Mark! - Login</div>
+      <div class="form-div">
+        <span>Email</span> <input type="text" id="email" class="query-field" size="15"/>
+      </div>
+      <div class="form-div">
+        <span>Password</span> <input type="password"  id="password" class="query-field" size="15"/>
+      </div>
+      <a href="#" class="register-btn">Register</a>
+      <input type="button" id="login-btn" value="Login" />
+    </div>
+
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="storage.js"></script>
+    <script type="text/javascript" src="login.js"></script>
+  </body>
+</html>

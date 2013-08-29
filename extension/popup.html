@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+      .form-div {
+         margin: 5px 0 5px 0;
+      }
+      .form-div span {
+         display: inline-block;
+         width: 35px;
+         padding-left: 5px;
+      }
+      #info {
+        font-size: 14px;
+        margin: 5px;
+        color: #16a085;
+        line-height: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div id="info">Mark Successful!</div>
+      <div class="form-div">
+        <span>Title</span> <input type="text" id="title" class="query-field" size="20"/>
+      </div>
+      <div class="form-div">
+        <span>Tags</span> <input type="text"  id="tags" class="query-field" size="20"/>
+      </div>
+      <input type="button" id="update-btn" value="Update" />
+    </div>
+
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="storage.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

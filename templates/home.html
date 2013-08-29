@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flat UI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="/static/css/flat-ui.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+    <style>
+    html {
+        height: 100%;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    .iconbar{
+        border-radius:0px;
+        -webkit-border-radius:0px;
+        height: 100%;
+        min-height: 100%;
+        margin: auto;
+    }
+    .container {
+        height: 100%;
+        overflow: auto;
+        position: absolute;
+        left: 84px;;
+        width: -moz-calc(100% - 84px);
+        width: -webkit-calc(100% - 84px);
+        width: calc(100% - 84px);
+    }
+    #wrapper {
+        padding:20px;
+        padding-top: 13px;
+    }
+    .record-item {
+        margin-bottom: 5px;
+    }
+    .record-item a{
+        font-size: 15px;
+    }
+    .record-item a:hover{
+        text-decoration: underline;
+    }
+    .record-item small{
+        color: #cccccc;
+        margin-left: 5px;
+        margin-right: 10px;
+    }
+    .record-item i{
+        display: none;
+        margin-left: 10px;
+    }
+    .record-item:hover i{
+        display: inline;
+        cursor: pointer;
+    }
+
+    </style>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="iconbar" id="sidebar">
+     <ul>
+          <li class="active"><a href="#fakelink" class="fui-home"></a></li>
+          <li><a href="#fakelink" class="fui-heart"></a></li>
+          <li><a href="#fakelink" class="fui-tag"></a></li>
+          <li><a href="#fakelink" class="fui-user">
+              <span class="iconbar-unread">1</span>
+          </a></li>
+          <li>
+            <a href="#fakelink" class="fui-gear">
+            </a>
+          </li>
+    </ul>
+    </div>
+    <div class="container">
+        <div id="wrapper">
+            <div class="control-group small">
+            <div class="input-append">
+              <input class="span2" id="appendedInputButton-04" type="text" placeholder="Search">
+              <button class="btn btn-small btn-primary" type="button"><span class="fui-search"></span></button>
+            </div>
+            </div>
+            <h6> 2013/8</h6>
+            <hr/>
+            <div class="record-item">
+                <a href="#">你好世界</a>
+                <small> www.google.com </small>
+                <span class="label label-primary">Info</span>
+                <span class="label label-primary">Programming</span>
+                <span class="label label-primary">Hello World</span>
+
+                <i class="fui-tag text-primary"></i>
+                <i class="fui-export text-primary"></i>
+                <i class="fui-cross-inverted text-primary"></i>
+            </div>
+            <div class="record-item">
+                <a href="#">你好世界</a>
+                <small> www.google.com </small>
+                <span class="label label-primary">Info</span>
+                <span class="label label-primary">Programming</span>
+                <span class="label label-primary">Hello World</span>
+
+                <i class="fui-tag text-primary"></i>
+                <i class="fui-export text-primary"></i>
+                <i class="fui-cross-inverted text-primary"></i>
+            </div>
+            <div class="record-item">
+                <a href="#">你好世界</a>
+                <small> www.google.com </small>
+                <span class="label label-primary">Info</span>
+                <span class="label label-primary">Programming</span>
+                <span class="label label-primary">Hello World</span>
+
+                <i class="fui-tag text-primary"></i>
+                <i class="fui-export text-primary"></i>
+                <i class="fui-cross-inverted text-primary"></i>
+            </div>
+        </div>
+    </div>
+<!-- /.container -->
+    <!-- Load JS here for greater good =============================-->
+    <script src="/static/js/jquery-1.8.3.min.js"></script>
+    <script src="/static/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="/static/js/jquery.ui.touch-punch.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap-select.js"></script>
+    <script src="/static/js/bootstrap-switch.js"></script>
+    <script src="/static/js/flatui-checkbox.js"></script>
+    <script src="/static/js/flatui-radio.js"></script>
+    <script src="/static/js/jquery.tagsinput.js"></script>
+    <script src="/static/js/jquery.placeholder.js"></script>
+    <script src="/static/js/jquery.stacktable.js"></script>
+  </body>
+</html>

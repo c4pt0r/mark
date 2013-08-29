@@ -1,0 +1,27 @@
+{
+   "browser_action": {
+      "default_icon": "static/icon32.png",
+      "default_popup": "popup.html",
+      "default_title": "Mark!"
+   },
+   "commands": {
+      "_execute_browser_action": {
+         "suggested_key": {
+            "default": "Ctrl+Shift+A",
+            "mac": "MacCtrl+Shift+A"
+         }
+      }
+   },
+   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com https://clients5.google.com; object-src 'self'",
+   "description": "Yet another Favourite",
+   "icons": {
+      "128": "static/icon128.png",
+      "16": "static/icon16.png",
+      "32": "static/icon32.png",
+      "48": "static/icon48.png"
+   },
+   "manifest_version": 2,
+   "name": "Mark!",
+   "permissions": [ "tabs", "storage", "http://*/*", "https://*/*" ],
+   "version": "0.1"
+}
