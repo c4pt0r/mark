@@ -14,7 +14,7 @@ $(document).ready(function(){
       $.post("http://localhost:5000/record/add", {token:token, title:tab.title, url:url}, function(d) {
         var ret = JSON.parse(d)
         if (ret.ret == 0) {
-          $("#info").html("Mark Success");
+          $("#info").html("Mark Success!");
           record_id = ret.id;
           $("#tags").val(ret.tags)
         } else {

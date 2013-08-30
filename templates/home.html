@@ -96,38 +96,8 @@
             </div>
             <h6> 2013/8</h6>
             <hr/>
-            <div class="record-item">
-                <a href="#">你好世界</a>
-                <small> www.google.com </small>
-                <span class="label label-primary">Info</span>
-                <span class="label label-primary">Programming</span>
-                <span class="label label-primary">Hello World</span>
-
-                <i class="fui-tag text-primary"></i>
-                <i class="fui-export text-primary"></i>
-                <i class="fui-cross-inverted text-primary"></i>
-            </div>
-            <div class="record-item">
-                <a href="#">你好世界</a>
-                <small> www.google.com </small>
-                <span class="label label-primary">Info</span>
-                <span class="label label-primary">Programming</span>
-                <span class="label label-primary">Hello World</span>
-
-                <i class="fui-tag text-primary"></i>
-                <i class="fui-export text-primary"></i>
-                <i class="fui-cross-inverted text-primary"></i>
-            </div>
-            <div class="record-item">
-                <a href="#">你好世界</a>
-                <small> www.google.com </small>
-                <span class="label label-primary">Info</span>
-                <span class="label label-primary">Programming</span>
-                <span class="label label-primary">Hello World</span>
-
-                <i class="fui-tag text-primary"></i>
-                <i class="fui-export text-primary"></i>
-                <i class="fui-cross-inverted text-primary"></i>
+            <div class="record-collection">
+            
             </div>
         </div>
     </div>
@@ -144,5 +114,28 @@
     <script src="/static/js/jquery.tagsinput.js"></script>
     <script src="/static/js/jquery.placeholder.js"></script>
     <script src="/static/js/jquery.stacktable.js"></script>
+    <script src="/static/js/underscore-min.js"></script>
+    <script src="/static/js/template-loader.js"></script>
+    <script>
+    $(document).ready(function(){
+        var user_email = "{{ email }}"
+        var getHostName = function(url) {
+            var tmp = url.toString().replace(/^(.*\/\/[^\/?#]*).*$/,"$1");
+            return tmp.replace("http://", "").replace("https://", "")
+        }
+        $.get('/record/list', function(e) {
+            var data = JSON.parse(e);
+            _.each(data, function(record){
+                var html = render("record", {url:  record.url,
+                                             title: record.title,
+                                             tags: record.tags,
+                                             host :getHostName(record.url)});
+
+                $('.record-collection').append(html);    
+            })
+        })
+    })
+    </script>
+    
   </body>
 </html>

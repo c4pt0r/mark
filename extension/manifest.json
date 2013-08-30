@@ -20,6 +20,7 @@
       "32": "static/icon32.png",
       "48": "static/icon48.png"
    },
+   "omnibox": { "keyword" : "!mark" }, 
    "manifest_version": 2,
    "name": "Mark!",
    "permissions": [ "tabs", "storage", "http://*/*", "https://*/*" ],

@@ -54,13 +54,12 @@ def record_match_rank(keyword, record_obj):
         point += 1
     return point
 
-
 def to_dict(mongo_obj):
     del mongo_obj['_id']
     return mongo_obj
 
 ######### user handlers ##############
-@app.route("/user/register")
+@app.route("/user/register", methods=["GET", "POST"])
 def register():
     username = args("email")
     password = args("password")
@@ -179,15 +178,20 @@ def record_search():
             ret.append(to_dict(r))
     return json.dumps(ret)
 
+############### pages ####################
 @app.route("/home")
 @login_page_required
 def home_handler():
     email = request.cookies.get("email")
-    return render_template("home.html")
+    return render_template("home.html", email=email)
 
 @app.route("/login")
 def login_page_handler():
     return render_template("login.html")
+
+@app.route("/register")
+def register_page_handler():
+    return render_template("register.html")
 
 if __name__ == "__main__":
     app.debug = True
