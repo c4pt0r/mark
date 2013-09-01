@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Flat UI</title>
+    <title>Mark!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Loading Bootstrap -->
@@ -90,14 +90,11 @@
         <div id="wrapper">
             <div class="control-group small">
             <div class="input-append">
-              <input class="span2" id="appendedInputButton-04" type="text" placeholder="Search">
-              <button class="btn btn-small btn-primary" type="button"><span class="fui-search"></span></button>
+              <input class="span2" id="search_text" type="text" placeholder="Search">
+              <button id="search_btn" class="btn btn-small btn-primary" type="button"><span class="fui-search"></span></button>
             </div>
             </div>
-            <h6> 2013/8</h6>
-            <hr/>
             <div class="record-collection">
-            
             </div>
         </div>
     </div>
@@ -123,19 +120,43 @@
             var tmp = url.toString().replace(/^(.*\/\/[^\/?#]*).*$/,"$1");
             return tmp.replace("http://", "").replace("https://", "")
         }
-        $.get('/record/list', function(e) {
-            var data = JSON.parse(e);
-            _.each(data, function(record){
-                var html = render("record", {url:  record.url,
-                                             title: record.title,
-                                             tags: record.tags,
-                                             host :getHostName(record.url)});
-
-                $('.record-collection').append(html);    
+        var render_record_list = function(record_list) {
+            var last_year_month = "";
+            record_list.sort(function(a,b) { return b.ts - a.ts; })
+            _.each(record_list, function(record){
+               var html = render("record", {url:  record.url,
+                                            title: record.title,
+                                            tags: record.tags,
+                                            host :getHostName(record.url)});
+               console.log(record.ts)
+               var date = new Date(record.ts * 1000);
+               var year_month = date.getFullYear() + '/' + (date.getMonth() + 1)
+               if (year_month!= last_year_month) {
+                 last_year_month = year_month;
+                 $('.record-collection').append("<h6>" + year_month + "</h6><hr/>")
+               }
+               $('.record-collection').append(html);
+           })
+        }
+        var load_full_list = function(){
+            $.get('/record/list', function(e) {
+                $('.record-collection').html('')
+                var data = JSON.parse(e);
+                render_record_list(data);
             })
+        }
+        load_full_list();
+
+        $('#search_btn').click(function(){
+          $.get('/record/search?s=' + $('#search_text').val(), {}, function(e){
+            console.log(e)
+            $('.record-collection').html('');
+            var data = JSON.parse(e);
+            render_record_list(data);
+          })
         })
     })
     </script>
-    
+
   </body>
 </html>

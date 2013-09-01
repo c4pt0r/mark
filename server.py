@@ -37,7 +37,7 @@ def get_email_from_token(token):
     if token is None: return None
     u = db.user.find_one({"token": token})
     if u != None:
-        return u["email"] 
+        return u["email"]
     return None
 
 def record_match_rank(keyword, record_obj):
@@ -171,7 +171,7 @@ def record_search():
     keyword = args("s")
     email = request.cookies.get('email')
     ret = []
-    for r in db.record.find({"email":email}, {"title":1, "url":1, "tags":1}):
+    for r in db.record.find({"email":email}, {"ts":1, "title":1, "url":1, "tags":1}):
         point = record_match_rank(keyword, r)
         if point > 0:
             r["rank"] = point
