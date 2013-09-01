@@ -29,15 +29,22 @@
         min-height: 100%;
         margin: auto;
     }
+    /*.container {
+        height: 100%;
+        overflow: auto;
+        position: absolute;
+        left: 84px;
+        width: -moz-calc(100% - 84px);
+        width: -webkit-calc(100% - 84px);
+        width: calc(100% - 84px);
+    }*/
     .container {
         height: 100%;
         overflow: auto;
         position: absolute;
-        left: 84px;;
-        width: -moz-calc(100% - 84px);
-        width: -webkit-calc(100% - 84px);
-        width: calc(100% - 84px);
+        width: 100%;
     }
+
     #wrapper {
         padding:20px;
         padding-top: 13px;
@@ -72,7 +79,7 @@
     <![endif]-->
   </head>
   <body>
-    <div class="iconbar" id="sidebar">
+    <div class="iconbar" id="sidebar" style="display:none">
      <ul>
           <li class="active"><a href="#fakelink" class="fui-home"></a></li>
           <li><a href="#fakelink" class="fui-heart"></a></li>
@@ -123,6 +130,10 @@
         var render_record_list = function(record_list) {
             var last_year_month = "";
             record_list.sort(function(a,b) { return b.ts - a.ts; })
+            if (record_list.length == 0) {
+              $(".record-collection").html("<h6>No Records.</h6>");
+              return ;
+            }
             _.each(record_list, function(record){
                var html = render("record", {url:  record.url,
                                             title: record.title,
